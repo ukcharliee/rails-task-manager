@@ -1,0 +1,15 @@
+
+<h2>Add task: <%= link_to "here",new_task_path  %></h2>
+<h2>Here is a list of all your tasks</h2>
+<% i= 1 %>
+
+<% @tasks.each do |t| %>
+  <h2>Task <%= i %>:  <%= link_to t.name, task_path(t) %></h2>
+  <p> Details: <%=t.details%></p>
+
+  <p><%=link_to "edit", edit_task_path(t)  %></p>
+
+  <p><%= link_to 'Remove task from list', task_path(t), method: :patch %>
+</p>
+  <% i +=1 %>
+<%end%>
